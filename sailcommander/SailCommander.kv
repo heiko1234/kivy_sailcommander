@@ -1,0 +1,47 @@
+# # #:kivy!
+
+
+
+MDScreenManager:
+    WelcomeWindow:
+    SecondWindow:
+
+
+<WelcomeWindow>:
+    name: "welcomewindow"
+
+    # entrance_name_label:entrance_name_label_kv
+
+    GridLayout:
+        cols: 1
+        size_hint: (0.6, 0.6)
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Image: 
+            source: "assets/SAIL_Commander.png"
+
+        # https://kivymd.readthedocs.io/en/1.1.1/components/button/index.html
+        MDRectangleFlatButton:
+            text: "Entrance"
+            theme_text_color: "Custom"
+            text_color: "blue"
+            line_color: "red"
+            halign: "center"
+            size_hint: (1, 0.5)
+            on_release: 
+                root.entrance_button_behavior()
+
+
+
+<SecondWindow>:
+    name: "secondwindow"
+
+    GridLayout:
+        col: 1 
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        MDLabel:
+            text: "Hola"
+            halign: "center"
+
+
