@@ -3,6 +3,18 @@
 
 
 
+## MDApp Design
+
+https://m3.material.io/
+https://m3.material.io/components
+
+
+https://github.com/kivymd/KivyMD/wiki/
+
+Chips:
+https://github.com/kivymd/KivyMD/wiki/Components-Chip
+
+
 
 ## Links
 

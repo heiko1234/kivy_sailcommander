@@ -9,7 +9,9 @@
 from kivymd.app import MDApp
 
 from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.screenmanager import Screen
+from kivymd.toast.kivytoast.kivytoast import toast
+
 
 # Properties
 from kivy.properties import ObjectProperty
@@ -33,21 +35,34 @@ class WelcomeWindow(Screen):
 
     def on_enter(self, *args):
         # on_enter works automatically, while keyword
-        Clock.schedule_once(self.switch_to_second_view, 10)
+        Clock.schedule_once(self.switch_to_second_view, 3)
 
     def entrance_button_behavior(self, *args):
         Clock.schedule_once(self.switch_to_second_view, 1)
 
     def switch_to_second_view(self, *args):
-        self.manager.current = "secondwindow"
+        self.manager.current = "commanderwindow"
         self.manager.transition.direction="left"
 
 
-class SecondWindow(Screen):
-    pass
+class CommanderWindow(Screen):
 
-# class WindowManager(ScreenManager):
-#     pass
+    sail_png = ObjectProperty(None)
+    command_text = ObjectProperty(None)
+
+    def on_enter(self, *args):
+        # on_enter works automatically, while keyword
+        Clock.schedule_once(self.switch_png_view, 3)
+
+    def switch_png_view(self, *args):
+        self.sail_png.source = "assets/sails/sail_up_bb.png"
+
+
+    def show_toast(self, *args):
+        if self.command_text.text == "Heiss":
+            toast("Test Kivy Toast", duration=4)
+            self.command_text.text = ""
+
 
 
 # https://github.com/kivymd/KivyMD/wiki/Modules-Material-App#exceptions
