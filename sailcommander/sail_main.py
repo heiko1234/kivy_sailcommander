@@ -48,7 +48,14 @@ class WelcomeWindow(Screen):
 class CommanderWindow(Screen):
 
     sail_png = ObjectProperty(None)
+    wind_png = ObjectProperty(None)
     command_text = ObjectProperty(None)
+    sail_wende = ObjectProperty(None)
+    sail_halse = ObjectProperty(None)
+    sail_mob = ObjectProperty(None)
+    command_hints = ObjectProperty(None)
+    arrow_left= ObjectProperty(None)
+    arrow_right= ObjectProperty(None)
 
     def on_enter(self, *args):
         # on_enter works automatically, while keyword
