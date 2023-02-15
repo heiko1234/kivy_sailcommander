@@ -17,7 +17,7 @@ https://github.com/kivymd/KivyMD/wiki/Components-Chip
 
 ICONs:
 https://pictogrammers.com/library/mdi/
-
+# https://pictogrammers.com/library/mdi/   # ICONs
 
 
 ## Links
