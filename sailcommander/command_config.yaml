@@ -1,0 +1,50 @@
+
+
+Einfach:
+  Wende:
+    - Step1:
+        Commando:
+          "Klar zur Wende"
+        Antwort:
+          "Ist klar"
+        Boot:
+          segel: "up"
+          lage: "bb"
+          wind: "wind_45"
+
+
+    - Step2:
+        Commando:
+          "Ree"
+        Antwort:
+          ""
+        Ruder:
+          True
+    
+    - Step3:
+      Commando: 
+        "Über die Segel"
+      Antwort:
+        ""
+    
+    - Step4:
+      Commando:
+        "Neuer Kurs am Wind"
+        # "Neuer Kurs am Wind fier auf die Segel"
+      Antwort:
+        "Nuer Kurs am Wind liegt an"
+
+  Halse:
+    - Step1:
+    - Step2:
+
+
+
+
+
+
+
+
+
+
+
