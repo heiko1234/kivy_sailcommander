@@ -46,7 +46,7 @@ class WelcomeWindow(Screen):
 # init the boat outside of Screen
 boat_sail_info = sail_infos()
 
-
+scenario_commandos = sail_scenario()
 
 
 class CommanderWindow(Screen):
@@ -55,9 +55,11 @@ class CommanderWindow(Screen):
     sail_png = ObjectProperty(None)
     wind_png = ObjectProperty(None)
     # scenarios
+    sail_segel_up = ObjectProperty(None)
+    sail_segel_down = ObjectProperty(None)
     sail_wende = ObjectProperty(None)
     sail_halse = ObjectProperty(None)
-    sail_mob = ObjectProperty(None)
+    # sail_mob = ObjectProperty(None)
     # actions
     command_text = ObjectProperty(None)
     send_command=ObjectProperty(None)
@@ -68,7 +70,7 @@ class CommanderWindow(Screen):
     arrow_right= ObjectProperty(None)
     # toggle
     hints_onoff=ObjectProperty(None)
-    mic_onoff=ObjectProperty(None)
+    # mic_onoff=ObjectProperty(None)
 
 
     # def on_enter(self, *args):
@@ -101,24 +103,99 @@ class CommanderWindow(Screen):
     def right(self, *args):
         boat_sail_info.get_right()
 
-        # button ansteuern
-        # output=str(self.mic_onoff.state)
-        # print(output)   #"normal", "down"
-
-        # output2=str(self.sail_wende.state)   # normal
-        # output2=str(self.sail_wende.selected)  #True, False
-        # print(output2) 
-
         self.show_wind_png()
         self.show_boat_png()
 
-    def commando(self, *args):
+    def select_scenario(self, *args):
+        scenario = self.get_scenario_selection()
+        scenario_commandos.select_scenario(scenario)
 
-        self.command_hints.text=self.command_text.text 
+    def clear_command(self, *args):
         self.command_text.text = ""
 
+    def commando(self, *args):
+
+        scenario = self.get_scenario_selection()
 
 
+        try:
+            # print(scenario_commandos.process_scenario(scenario=scenario, commando=self.command_text.text,segel=None, lage=None, wind=None))
+
+            lower_text=self.command_text.text.lower()
+
+            feedback, sail = scenario_commandos.process_scenario(scenario=scenario, commando=self.command_text.text,segel=None, lage=None, wind=boat_sail_info.get_wind() )
+
+            if "fier auf" in lower_text:
+                # print (lower_text)
+                boat_sail_info.segel_lose()
+
+                if boat_sail_info.get_wind() == "wind_90" or boat_sail_info.get_wind() == "wind_135" or boat_sail_info.get_wind() == "wind_225" or boat_sail_info.get_wind() == "wind_270":
+                    feedback = "[fier auf ausgeführt]"
+
+            if "hol dicht" in lower_text:
+                # print (lower_text)
+                boat_sail_info.segel_dichter()
+                
+                if boat_sail_info.get_wind() == "wind_90" or boat_sail_info.get_wind() == "wind_45" or boat_sail_info.get_wind() == "wind_270" or boat_sail_info.get_wind() == "wind_315":
+                    feedback = "[hol dicht ausgeführt]"
+
+
+            if sail is not None:
+                boat_sail_info.update_segel(sail)
+
+            # if feedback != "":
+                # toast(feedback, duration=4)
+            self.command_hints.text = feedback
+
+            if (boat_sail_info.get_trim() == "rs") and (boat_sail_info.get_wind() == "wind_180"):
+                print("Patenthalse")
+                self.command_hints.text = "Autsch. Patenthalse"
+
+            self.command_text.text = ""
+
+        except ValueError:
+            self.command_text.text = ""
+
+        except AttributeError:
+            self.command_text.text = ""
+
+
+        self.show_boat_png()
+
+
+    def get_scenario_selection(self, *args):
+
+        if self.sail_segel_up.selected:
+            return "Segel"
+        if self.sail_segel_down.selected:
+            return "Bergen"
+        elif self.sail_wende.selected:
+            return "Wende"
+        elif self.sail_halse.selected:
+            return "Halse"
+    
+    def commando_hint(self, *args):
+
+        if self.hints_onoff.state == "down":
+
+            scenario = self.get_scenario_selection()
+
+            self.command_text.text = scenario_commandos.hint_command(scenario=scenario)
+
+
+
+
+
+
+
+
+# button ansteuern
+# output=str(self.mic_onoff.state)
+# print(output)   #"normal", "down"
+
+# output2=str(self.sail_wende.state)   # normal
+# output2=str(self.sail_wende.selected)  #True, False
+# print(output2) 
 
 
 
