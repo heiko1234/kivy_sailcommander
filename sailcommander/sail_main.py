@@ -101,15 +101,21 @@ class CommanderWindow(Screen):
     def right(self, *args):
         boat_sail_info.get_right()
 
+        # button ansteuern
         # output=str(self.mic_onoff.state)
         # print(output)   #"normal", "down"
 
-        output2=str(self.sail_wende.state)   # normal
-        output2=str(self.sail_wende.selected)  #True, False
-        print(output2) 
+        # output2=str(self.sail_wende.state)   # normal
+        # output2=str(self.sail_wende.selected)  #True, False
+        # print(output2) 
 
         self.show_wind_png()
         self.show_boat_png()
+
+    def commando(self, *args):
+
+        self.command_hints.text=self.command_text.text 
+        self.command_text.text = ""
 
 
 

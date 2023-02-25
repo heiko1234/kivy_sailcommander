@@ -203,7 +203,7 @@ MDScreenManager:
                 font_size: 24
                 multiline: False
                 size_hint: (1, 0.5)
-                padding_y: (5, 5)
+                # padding_y: (5, 5)
 
         GridLayout:
             cols: 1
@@ -222,7 +222,7 @@ MDScreenManager:
             MDIconButton:
                 icon: "send"
                 id: send_command
-                on_release: root.show_toast()
+                on_release: root.commando()
                 size_hint: (0.1, 0.1)
 
 

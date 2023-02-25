@@ -32,7 +32,7 @@ class sail_infos:
         self._status = "ready"
 
         # segel: up, down
-        # segel_lage: bb, st
+        # segel_lage: bb, st  # backboard steuerboard
         # segel_trim: hw = hart am wind, rs=raumschots
 
     def update_wind(self, wind):
@@ -163,19 +163,64 @@ class sail_infos:
 class sail_scenario:
     def __init__(self):
 
-        self._active_scenario = None
-        self._step=None
+        self._active_scenario = "Initial"
+        self._step=0
 
-    def choose_scenario(self, scenario="wende"):
-        self._active_scenario = scenario
-
+        self._scenario_config = read_configuration("./sailcommander/command_scenarion_config.yaml")
 
 
+    def hint_command(self, scenario):
+
+        if scenario != self._active_scenario:
+            step=0
+
+        else:
+            step = self._step
+
+        if step<len(self._scenario_config[scenario]):
+
+            stepkeys=self._scenario_config[scenario][step].keys()
+            output = []
+            for key in stepkeys:
+                output.append(key)
+            stepname = output[0]
+
+            # make it all lower
+            step_commando_lower = self._scenario_config[scenario][step][stepname]["Commando"]
+        
+            return step_commando_lower
 
 
-config=read_configuration(configuration_file_path="./sailcommander/command_config.yaml")
+    def process_scenario(self, scenario, commando, wind=None, segel=None, lage=None):
 
-config["Einfach"]["Wende"]
+        if self._active_scenario == scenario:
+            print("same scenario")
+
+        else:
+            print("new scenario")
+            self._active_scenario = scenario
+            self._step = 0
+
+        if self._step<len(self._scenario_config[self._active_scenario]):
+
+            stepkeys=self._scenario_config[self._active_scenario][self._step].keys()
+            output = []
+            for key in stepkeys:
+                output.append(key)
+            stepname = output[0]
+
+            # make it all lower
+            step_commando_lower = self._scenario_config[self._active_scenario][self._step][stepname]["Commando"]
+            step_commando_lower = step_commando_lower.lower()
+            commando_lower = commando.lower()
+
+            if step_commando_lower == commando_lower:
+                step_number = self._step
+                self._step=self._step+1
+                return self._scenario_config[self._active_scenario][step_number][stepname]["Antwort"]
+            
+        else:
+            return "keine weiteren Kommandos notwendig"
 
 
 
@@ -184,5 +229,60 @@ config["Einfach"]["Wende"]
 
 
 
+commandos=sail_scenario()
+
+commandos.hint_command(scenario="Wende")
+commandos.hint_command(scenario="Halse")
 
 
+
+commandos.process_scenario(scenario="Wende", commando="Klar zur wende", wind=None, segel=None, lage=None)
+
+commandos.process_scenario(scenario="Wende", commando="Ree", wind=None, segel=None, lage=None)
+
+commandos.process_scenario(scenario="Wende", commando="Über die Segel", wind=None, segel=None, lage=None)
+
+commandos.process_scenario(scenario="Wende", commando="Neuer Kurs am Wind", wind=None, segel=None, lage=None)
+
+
+
+commandos.process_scenario(scenario="Wende", commando="Klar zur wende", wind=None, segel=None, lage=None)
+
+
+commandos.process_scenario(scenario="Halse", commando="Klar zur wende", wind=None, segel=None, lage=None)
+
+
+
+
+
+
+config=read_configuration(configuration_file_path="./sailcommander/command_scenarion_config.yaml")
+# #
+# config["Wende"][0]
+# config["Wende"][0].keys()
+
+# step=config["Wende"][0].keys()
+# step
+
+# output = []
+# for key in step:
+#     output.append(key)
+
+# step = output[0]
+# step
+
+# config["Wende"][0]["Step1"]
+
+# config["Wende"][0][step]["Commando"]
+# config["Wende"][0][step]["Antwort"]
+# config["Wende"][0][step]["Boot"]
+
+# config["Wende"][0][step]["Boot"]["segel"]
+# config["Wende"][0][step]["Boot"]["lage"]
+# config["Wende"][0][step]["Boot"]["wind"]
+
+
+config["Halse"]
+
+config["Wende"]
+len(config["Wende"])

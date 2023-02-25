@@ -1,0 +1,73 @@
+
+
+
+Initial:
+  - Step1:
+      Commando:
+        "Szenario wählen"
+      Antwort:
+        ""
+
+
+# Einfach:
+Wende:
+  - Step1:
+      Commando:
+        "Klar zur Wende"
+      Antwort:
+        "Ist klar"
+      Boot:
+        segel: "up"
+        lage: "bb"
+        wind: "wind_45"
+
+
+  - Step2:
+      Commando:
+        "Ree"
+      Antwort:
+        ""
+      Boot:
+        segel: "up"
+        lage: "bb"
+        wind: "wind_45"
+  
+  - Step3:
+      Commando: 
+        "Über die Segel"
+      Antwort:
+        ""
+      Boot:
+        segel: "up"
+        lage: "bb"
+        wind: "wind_45"
+
+  - Step4:
+      Commando:
+        "Neuer Kurs am Wind"
+        # "Neuer Kurs am Wind fier auf die Segel"
+      Antwort:
+        "Neuer Kurs am Wind liegt an"
+      Boot:
+        segel: "up"
+        lage: "bb"
+        wind: "wind_45"
+
+
+Halse:
+  - Step1:
+      Commando:
+        "Klar zur Halse"
+      Antwort:
+        "Ist klar"
+
+
+
+
+
+
+
+
+
+
+
