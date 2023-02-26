@@ -223,10 +223,19 @@ adb devices
 # switch to dir of bin
 cd ./bin
 
-adb -s 222be3df install heal-0.1-arm64-v8a_armeabi-v7a-debug.apk
+adb -s 29477c1e install sailcommander-0.1-arm64-v8a_armeabi-v7a-debug.apk
+
+# for error logging
+adb -s 29477c1e logcat *:S python:D   
 
 
 ```
+
+
+![adb_devices](./assets/adb_devices.png)
+
+
+
 
 
 # All on Mobil

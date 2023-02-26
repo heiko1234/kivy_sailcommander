@@ -5,6 +5,9 @@
 # Kivy MD
 # https://www.youtube.com/watch?v=LRXo0juuTrw&list=PLhTjy8cBISEoQQLZ9IBlVlr4WjVoStmy-
 
+from kivy.config import Config
+Config.set('kivy','keyboard_mode','systemanddock')
+
 
 from kivymd.app import MDApp
 

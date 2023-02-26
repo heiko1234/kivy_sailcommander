@@ -1,13 +1,15 @@
 
 import os
 import yaml
+import pathlib
 
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 
-load_dotenv()
+# load_dotenv()
 
-local_run = os.getenv("LOCAL_RUN", False)
+# local_run = os.getenv("LOCAL_RUN", False)
+# local_run  # True
 
 
 def read_configuration(configuration_file_path):
@@ -190,7 +192,17 @@ class sail_scenario:
         self._active_scenario = "Initial"
         self._step=0
 
-        self._scenario_config = read_configuration("./sailcommander/command_scenarion_config.yaml")
+        # if local_run:
+        # self._scenario_config = read_configuration("./sailcommander/command_scenarion_config.yaml")
+        # else:
+        # path_abs = os.path.abspath(__file__)
+        # print(path_abs)
+        # BUG bei buildozer: patho not found when absolute paths are added. 
+        # path_abs = pathlib.Path(__file__).parent.resolve()
+        # newpath=pathlib.Path.joinpath(path_abs, "command_scenarion_config.yaml")
+        # self._scenario_config = read_configuration(newpath)
+        # self._scenario_config = read_configuration("./command_scenarion_config.yaml")
+        self._scenario_config = None
 
     def select_scenario(self, scenario):
         self._active_scenario = scenario
@@ -252,9 +264,9 @@ class sail_scenario:
 
                 # TODO: check if Bedingung in config und dann...
                 if "Bedingung" in self._scenario_config[self._active_scenario][self._step][stepname].keys():
-                    print(self._scenario_config[self._active_scenario][self._step][stepname].keys())
+                    #print(self._scenario_config[self._active_scenario][self._step][stepname].keys())
                     if "wind" in self._scenario_config[self._active_scenario][self._step][stepname]["Bedingung"].keys():
-                        print(self._scenario_config[self._active_scenario][self._step][stepname]["Bedingung"].keys())
+                        #print(self._scenario_config[self._active_scenario][self._step][stepname]["Bedingung"].keys())
                         if wind in self._scenario_config[self._active_scenario][self._step][stepname]["Bedingung"]["wind"]:
                             bedingung_true = True
                         else:

@@ -1,0 +1,49 @@
+# # #:kivy!
+
+
+<MagicButton@MagicBehavior+MDRectangleFlatButton>
+<MyToggleButton@MDToggleButton+MDRoundFlatButton>
+
+
+MDScreenManager:
+    WelcomeWindow:
+    CommanderWindow:
+
+
+<WelcomeWindow>:
+    name: "welcomewindow"
+
+    GridLayout:
+        cols: 1
+        size_hint: 0.6, 0.6
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Image: 
+            source: "assets/logos/SAIL_Commander.png"
+
+        # MDRectangleFlatButton:
+        MDRoundFlatIconButton:
+            text: "Los aufs Wasser"
+            icon: "sail-boat"
+            theme_text_color: "Custom"
+            text_color: "blue"
+            line_color: "blue"
+            halign: "center"
+            size_hint: (0.1, 0.2)
+            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+            on_release: 
+                root.entrance_button_behavior()
+
+
+<CommanderWindow>:
+    name: "commanderwindow"
+
+    GridLayout:
+        cols: 1
+        size_hint: 0.6, 0.6
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Image: 
+            source: "assets/logos/SAIL_Commander.png"
+
+
