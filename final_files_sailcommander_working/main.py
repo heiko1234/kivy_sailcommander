@@ -72,7 +72,6 @@ class CommanderWindow(Screen):
     arrow_left= ObjectProperty(None)
     arrow_right= ObjectProperty(None)
     # toggle
-    # TODO:
     hints_onoff=ObjectProperty(None)
     # mic_onoff=ObjectProperty(None)
 
@@ -180,14 +179,11 @@ class CommanderWindow(Screen):
     
     def commando_hint(self, *args):
 
-        # TODO:
-
         if self.hints_onoff.state == "down":
 
             scenario = self.get_scenario_selection()
 
             self.command_text.text = scenario_commandos.hint_command(scenario=scenario)
-        # pass
 
 
 

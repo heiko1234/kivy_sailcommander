@@ -16,12 +16,9 @@
 
 # kivymd 1.1.1
 
-# TODO: MyTogglebutton / MagicButtn
-
 <MagicButton@MagicBehavior+MDRectangleFlatButton>
 # <MyToggleButton@MDToggleButton+MDFlatButton>
-# <MyToggleButton@MDToggleButton+MDRoundFlatButton>
-<MyToggleButton@MDRoundFlatButton>
+<MyToggleButton@MDToggleButton+MDRoundFlatButton>
 
 # https://kivymd.readthedocs.io/en/1.1.1/behaviors/togglebutton/index.html
 # https://kivymd.readthedocs.io/en/1.1.1/behaviors/magic/
@@ -107,7 +104,6 @@ MDScreenManager:
     arrow_left:arrow_left
     arrow_right: arrow_right
     # toggle
-    # TODO: hints_onoff
     hints_onoff: hints_onoff
     # mic_onoff: mic_onoff
 
@@ -120,13 +116,13 @@ MDScreenManager:
             # md_bg_color: "#e7e4c0"
             left_action_items: [["sail-boat", lambda x: nav_drawer.set_state("open"), "", ""]]
 
-        # GridLayout:
-        #     cols: 1
-        #     size_hint: 1, 0.02
+        GridLayout:
+            cols: 1
+            size_hint: 1, 0.02
 
-        # GridLayout:
-        #     cols: 2
-        #     size_hint: 0.6, 0.05
+        GridLayout:
+            cols: 2
+            size_hint: 0.6, 0.05
 
         FloatLayout:
             Image: 
@@ -152,8 +148,6 @@ MDScreenManager:
                 group: "x"
                 theme_text_color: "Custom"
                 background_down: "green"
-                # md_bg_color: "grey"
-                background_normal: ""
                 line_color: "blue"
                 text_color: "blue"
                 size_hint: 0.1, .1
@@ -161,46 +155,6 @@ MDScreenManager:
                 pos_hint: {"x": 0.47, "y": 0.9}
                 # 
                 on_state: root.commando_hint()
-
-        GridLayout:
-            cols: 1
-            size_hint: (0.6, 0.2)
-            # pos_hint: {"center_x": 0.5, "center_y": 0.5}
-
-            MDLabel:
-                id:command_hints
-                text:"Bitte Kommandos eingeben"
-                size_hint: (1, 0.5)
-                halign: "center"
-                text_color: "black"
-
-            TextInput:
-                id: command_text
-                font_size: 24
-                multiline: False
-                size_hint: (1, 0.5)
-                # padding_y: (5, 5)
-
-        GridLayout:
-            cols: 2
-            size_hint: (0.6, 0.1)
-
-            MDIconButton:
-                icon: "delete"
-                id: delete_command
-                on_release: 
-                    # root.show_toast()
-                    root.clear_command()
-                    root.commando_hint()
-                size_hint: (0.1, 0.1)
-            
-            MDIconButton:
-                icon: "send"
-                id: send_command
-                on_release: 
-                    root.commando()
-                    root.commando_hint()
-                size_hint: (0.1, 0.1)
 
         GridLayout:
             cols: 1
@@ -237,11 +191,50 @@ MDScreenManager:
             cols: 1
             size_hint: (0.01, 0.01)
 
+        GridLayout:
+            cols: 1
+            size_hint: (0.6, 0.2)
+            # pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
+            MDLabel:
+                id:command_hints
+                text:"Bitte Kommandos eingeben"
+                size_hint: (1, 0.5)
+                halign: "center"
+                text_color: "black"
+
+            TextInput:
+                id: command_text
+                font_size: 24
+                multiline: False
+                size_hint: (1, 0.5)
+                # padding_y: (5, 5)
 
         GridLayout:
             cols: 1
-            size_hint: (1, 0.1)
+            size_hint: (1, 0.03)
+
+        GridLayout:
+            cols: 2
+            size_hint: (0.6, 0.1)
+
+            MDIconButton:
+                icon: "delete"
+                id: delete_command
+                on_release: 
+                    # root.show_toast()
+                    root.clear_command()
+                    root.commando_hint()
+                size_hint: (0.1, 0.1)
+            
+            MDIconButton:
+                icon: "send"
+                id: send_command
+                on_release: 
+                    root.commando()
+                    root.commando_hint()
+                size_hint: (0.1, 0.1)
+
 
         MDBottomAppBar:
 

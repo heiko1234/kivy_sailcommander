@@ -1,0 +1,153 @@
+# # #:kivy!
+
+# kivymd 1.1.1
+
+<MagicButton@MagicBehavior+MDRectangleFlatButton>
+<MyToggleButton@MDToggleButton+MDRoundFlatButton>
+
+
+
+MDScreenManager:
+    WelcomeWindow:
+    CommanderWindow:
+
+
+<WelcomeWindow>:
+    name: "welcomewindow"
+
+    GridLayout:
+        cols: 1
+        size_hint: 0.6, 0.6
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Image: 
+            source: "assets/logos/SAIL_Commander.png"
+
+        # MDRectangleFlatButton:
+        MDRoundFlatIconButton:
+            text: "Los aufs Wasser"
+            icon: "sail-boat"
+            theme_text_color: "Custom"
+            text_color: "blue"
+            line_color: "blue"
+            halign: "center"
+            size_hint: (0.1, 0.2)
+            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+            on_release: 
+                root.entrance_button_behavior()
+
+
+<CommanderWindow>:
+    name: "commanderwindow"
+
+
+    GridLayout:
+        cols: 1
+        size_hint: 0.995, 0.995
+
+        #MDTopAppBar:
+            # title: app.title
+            # md_bg_color: "#e7e4c0"
+            # left_action_items: [["sail-boat", lambda x: nav_drawer.set_state("open"), "", ""]]
+
+        GridLayout:
+            cols: 1
+            size_hint: 1, 0.02
+
+        GridLayout:
+            cols: 2
+            size_hint: 0.6, 0.05
+
+        FloatLayout:
+            Image: 
+                id: sail_png
+                size_hint: 1, 1
+                pos_hint: {"x": 0, "y": 0}
+                source: "assets/sails/sail_down_bb.png"
+
+
+    # MDNavigationDrawer:
+    #     id: nav_drawer
+    #     radius: (0, 16, 16, 0)
+    #     type: "modal"
+    #     # https://kivymd.readthedocs.io/en/1.1.1/components/navigationdrawer/index.html
+
+    #     MDNavigationDrawerMenu:
+
+    #         MDNavigationDrawerHeader:
+    #             title: "Szenarios"
+    #             title_color: "#4a4939"
+    #             text: ""
+    #             source: "assets/logos/SAIL_logo.png"
+    #             spacing: "4dp"
+    #             padding: "12dp", 0, 0, "56dp"
+
+
+    #         MDNavigationDrawerLabel:
+    #             text: "Basics"
+
+    #         MDNavigationDrawerItem:
+    #             id: sail_segel_up
+    #             icon: "sail-boat"
+    #             text: "Segel setzen"
+    #             right_text: ""
+    #             selected_color: "##0f9664"
+    #             #focus_color: "#e7e4c0"
+    #             color: "#000000"
+    #             # on_state: 
+    #             #     root.select_scenario()
+    #             #     root.commando_hint()
+
+    #         MDNavigationDrawerItem:
+    #             id: sail_segel_down
+    #             icon: "sail-boat"
+    #             text: "Segel bergen"
+    #             right_text: ""
+    #             selected_color: "##0f9664"
+    #             #focus_color: "#e7e4c0"
+    #             color: "#000000"
+
+    #         MDNavigationDrawerDivider:
+
+    #         MDNavigationDrawerLabel:
+    #             text: "Einfach"
+
+    #         MDNavigationDrawerItem:
+    #             id: sail_wende
+    #             icon: "sail-boat"
+    #             text: "Wende"
+    #             right_text: ""
+    #             selected_color: "##0f9664"
+    #             #focus_color: "#e7e4c0"
+    #             color: "#000000"
+    #             on_release: 
+    #                 root.select_scenario()
+    #                 root.commando_hint()
+            
+    #         MDNavigationDrawerItem:
+    #             id: sail_halse
+    #             icon: "sail-boat"
+    #             text: "Halse"
+    #             right_text: ""
+    #             selected_color: "##0f9664"
+    #             #focus_color: "#e7e4c0"
+
+    #         MDNavigationDrawerDivider:
+
+    #         # MDNavigationDrawerLabel:
+    #         #     text: "Komplex"
+
+    #         # MDNavigationDrawerItem:
+    #         #     id: sail_mob
+    #         #     icon: "account-alert"
+    #         #     text: "MOB / BOB"
+    #         #     right_text: ""
+    #         #     selected_color: "##0f9664"
+    #         #     #focus_color: "#e7e4c0"
+
+
+
+
+
+
+

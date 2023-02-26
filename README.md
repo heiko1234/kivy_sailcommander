@@ -148,9 +148,27 @@ Then edith your .spec (buildozer.spec) file(in your kivy app folder) line 112 wi
 andriod.sdk_path = (Your file path) eg /home/freezy/buildozer/
 
 
+Important for kivy and kivymd is to specifiy for buildozer the version in the buildozer.spec file snce it does not read th poetry.lock file for versions, so it may break the app when it starts up.
 
+In case packages for buildozer needs to be updated: 
 
 ```dash
+
+buildozer android clean
+```
+
+Anyway, here are the things to look on:
+
+Although kivy 2.0.0 is used locally it requires for buildozer 2.1.0 because a package is missing else.
+
+```dash
+
+# update all your reverenced pics for buildozer
+
+# (list) Application requirements
+# comma separated e.g. requirements = sqlite3,kivy
+# always update specifically
+requirements = python3,kivy==2.1.0, kivymd==1.1.1, pyyaml==6.0, python-dotenv==0.21.1
 
 # buildozer.spec  file: 
 # line 127

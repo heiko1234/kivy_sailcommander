@@ -198,11 +198,11 @@ class sail_scenario:
         # path_abs = os.path.abspath(__file__)
         # print(path_abs)
         # BUG bei buildozer: patho not found when absolute paths are added. 
-        # path_abs = pathlib.Path(__file__).parent.resolve()
-        # newpath=pathlib.Path.joinpath(path_abs, "command_scenarion_config.yaml")
-        # self._scenario_config = read_configuration(newpath)
+        path_abs = pathlib.Path(__file__).parent.resolve()
+        newpath=pathlib.Path.joinpath(path_abs, "command_scenarion_config.yaml")
+        self._scenario_config = read_configuration(newpath)
         # self._scenario_config = read_configuration("./command_scenarion_config.yaml")
-        self._scenario_config = None
+        # self._scenario_config = None
 
     def select_scenario(self, scenario):
         self._active_scenario = scenario
