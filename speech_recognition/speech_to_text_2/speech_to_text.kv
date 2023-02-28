@@ -1,0 +1,39 @@
+# # #:kivy !
+
+
+ScreenManager:
+    MainWindow:
+
+
+
+<MainWindow>:
+    name: "mainwindow"
+
+    command_text: command_text
+    input_text: input_text
+
+    GridLayout:
+        cols: 1
+        size_hint: 0.6, 0.6
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+
+        TextInput:
+            id: input_text
+            multiline: False
+            size_hint: (1, 0.5)
+            halign: "center"
+            text_color: "black"
+
+        Label:
+            id: command_text
+            text:"Hier könnte dein Text stehen"
+            size_hint: (1, 0.5)
+            halign: "center"
+            text_color: "black"
+
+
+
+
+
+
