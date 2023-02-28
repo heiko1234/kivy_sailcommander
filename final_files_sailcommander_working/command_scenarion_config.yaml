@@ -1,0 +1,207 @@
+
+
+
+Initial:
+  - Step1:
+      Commando:
+        "Szenario wählen"
+      Antwort:
+        ""
+
+
+# Einfach:
+
+Segel:
+  - Step 1:
+      Commando: 
+        "Grosssegel klar zum Setzen"
+      Antwort:
+        "Grosssegel ist klar zum Setzen"
+      Boot:
+        segel: "down"
+      Bedingung:
+        wind: 
+        - "wind_00"
+        - "wind_45"
+        - "wind_315"
+
+  - Step 2:
+      Commando: 
+        "Heiss Grosssegel"
+      Antwort:
+        ""
+      Boot:
+        segel: "up"
+      Bedingung:
+        wind: 
+        - "wind_00"
+  # - Step 3:
+  #     Commando: 
+  #       "Vorsegel klar zum setzen"
+  #     Antwort:
+  #       "Vorsegel ist klar zum setzen"
+  #     Boot:
+  #       segel: "up"
+  # - Step 4:
+  #     Commando: 
+  #       "Heiss Vorsegel"
+  #     Antwort:
+  #       ""
+  #     Boot:
+  #       segel: "up"
+
+Bergen:
+  - Step 1:
+      Commando: 
+        "Grosssegel klar zum Bergen"
+      Antwort:
+        "Grosssegel ist klar zum Bergen"
+      Boot:
+        segel: "up"
+      Bedingung:
+        wind: 
+        - "wind_00"
+        - "wind_45"
+        - "wind_315"
+
+  - Step 2:
+      Commando: 
+        "Hol nieder Grosssegel"
+      Antwort:
+        ""
+      Boot:
+        segel: "down"
+      Bedingung:
+        wind: 
+        - "wind_00"
+
+
+Wende:
+  - Step1:
+      Commando:
+        "Klar zum Wenden"
+      Antwort:
+        "Fock ist klar"
+      Boot:
+        segel: "up"
+      Bedingung:
+        wind: 
+        - "wind_45"
+        - "wind_315"
+  - Step2:
+      Commando:
+        "Ree"
+      Antwort:
+        ""
+      Boot:
+        segel: "up"
+      Bedingung:
+        wind: 
+        - "wind_00"
+        - "wind_45"
+        - "wind_315"
+  - Step3:
+      Commando: 
+        "Über die Fock"
+      Antwort:
+        ""
+      Boot:
+        segel: "up"
+      Bedingung:
+        wind: 
+        - "wind_00"
+        - "wind_45"
+        - "wind_315"
+  - Step4:
+      Commando:
+        "Neuer Kurs am Wind"
+      Antwort:
+        "Neuer Kurs am Wind liegt an"
+      Boot:
+        segel: "up"
+      Bedingung:
+        wind: 
+        - "wind_45"
+        - "wind_315"
+
+
+Halse:
+  - Step1:
+      Commando:
+        "Klar zum Halsen"
+      Antwort:
+        "Fock ist klar. Grossschot ist klar"
+      Boot:
+        segel: "up"
+      Bedingung:
+        wind: 
+        - "wind_135"
+        - "wind_225"
+        - "wind_90"
+        - "wind_270"
+  - Step2:
+      Commando:
+        "Fier auf die Schoten"
+      Antwort:
+        ""
+      Boot:
+        segel: "up"
+      Bedingung:
+        wind: 
+        - "wind_135"
+        - "wind_225"
+  - Step3:
+      Commando:
+        "Hol dicht die Grossschot"
+      Antwort:
+        ""
+      Boot:
+        segel: "up"
+      Bedingung:
+        wind: 
+        - "wind_135"
+        - "wind_225"
+  - Step4:
+      Commando:
+        "Rund achtern"
+      Antwort:
+        ""
+      Boot:
+        segel: "up"
+      Bedingung:
+        wind: 
+        - "wind_180"
+  - Step5:
+      Commando:
+        "Über vorn"
+      Antwort:
+        ""
+      Boot:
+        segel: "up"
+      Bedingung:
+        wind: 
+        - "wind_180"
+  - Step6:
+      Commando:
+        "Fier auf die Grossschot"
+      Antwort:
+        ""
+      Boot:
+        segel: "up"
+      Bedingung:
+        wind: 
+        - "wind_135"
+        - "wind_225"
+  - Step7:
+      Commando:
+        "Neuer Kurs"
+      Antwort:
+        ""
+      Boot:
+        segel: "up"
+        # lage: "bb"
+        # wind: "wind_45"
+
+
+
+

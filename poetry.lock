@@ -611,6 +611,17 @@ docs = ["furo (>=2022.12.7)", "proselint (>=0.13)", "sphinx (>=6.1.3)", "sphinx-
 test = ["appdirs (==1.4.4)", "covdefaults (>=2.2.2)", "pytest (>=7.2.1)", "pytest-cov (>=4)", "pytest-mock (>=3.10)"]
 
 [[package]]
+name = "playsound"
+version = "1.3.0"
+description = "Pure Python, cross platform, single function module with no dependencies for playing sounds."
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "playsound-1.3.0.tar.gz", hash = "sha256:cc6ed11d773034b0ef624e6bb4bf50f4b76b8414a59ce6d38afb89b423297ced"},
+]
+
+[[package]]
 name = "ptyprocess"
 version = "0.7.0"
 description = "Run a subprocess in a pseudo terminal"
@@ -785,6 +796,21 @@ files = [
 ]
 
 [[package]]
+name = "speechrecognition"
+version = "3.9.0"
+description = "Library for performing speech recognition, with support for several engines and APIs, online and offline."
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "SpeechRecognition-3.9.0-py2.py3-none-any.whl", hash = "sha256:6da44facb564b3f2bcee96a2bf876b89a14f61afdee1e7fb12815e58211fd329"},
+    {file = "SpeechRecognition-3.9.0.tar.gz", hash = "sha256:a2f992acda6314a3fa574bf84c2e075ce75f2b4c143b4435d7cbc98f66565ee7"},
+]
+
+[package.dependencies]
+requests = ">=2.26.0"
+
+[[package]]
 name = "tomli"
 version = "2.0.1"
 description = "A lil' TOML parser"
@@ -849,4 +875,4 @@ test = ["covdefaults (>=2.2.2)", "coverage (>=7.1)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8.1, <3.9"
-content-hash = "d96132406bd863d34ba9675fab5b7012f5bf7345f28433b15a903f7c70098d6c"
+content-hash = "266cc12b507cc409f760dcf1ec86eab2aae661c0f50f869845a235a57f16f67a"

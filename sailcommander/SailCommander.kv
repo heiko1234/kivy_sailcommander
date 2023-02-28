@@ -127,27 +127,15 @@ MDScreenManager:
         # GridLayout:
         #     cols: 2
         #     size_hint: 0.6, 0.05
+        GridLayout:
+            cols: 1
+            # size_hint: 1.2, 1.2
 
-        FloatLayout:
-            Image: 
-                id: sail_png
-                size_hint: 1, 1
-                pos_hint: {"x": 0, "y": 0}
-                source: "assets/sails/sail_down_bb.png"
 
-            # MyToggleButton:
-            #     text: "Mic"
-            #     id: mic_onoff
-            #     group: "x"
-            #     theme_text_color: "Custom"
-            #     background_down: "green"
-            #     line_color: "blue"
-            #     text_color: "blue"
-            #     size_hint: 0.1, .1
-            #     pos_hint: {"x": 0.35, "y": 0.9}
+        # FloatLayout:
 
             MyToggleButton:
-                text: "Hinweise"
+                text: "Hinweis geben"
                 id: hints_onoff
                 group: "x"
                 theme_text_color: "Custom"
@@ -162,6 +150,45 @@ MDScreenManager:
                 # 
                 on_state: root.commando_hint()
 
+            # Image:
+            FitImage: 
+                id: sail_png
+                # size_hint: 1, 1
+                #pos_hint: {"x": 0, "y": 0}
+                #keep_ratio: True
+                # allow_stretch: True
+                source: "assets/sails/sail_down_bb.png"
+                # size_hint: 
+                size: 360, 360
+
+            # MyToggleButton:
+            #     text: "Mic"
+            #     id: mic_onoff
+            #     group: "x"
+            #     theme_text_color: "Custom"
+            #     background_down: "green"
+            #     line_color: "blue"
+            #     text_color: "blue"
+            #     size_hint: 0.1, .1
+            #     pos_hint: {"x": 0.35, "y": 0.9}
+
+            # When with FloatLayout 
+            # MyToggleButton:
+            #     text: "Hinweise"
+            #     id: hints_onoff
+            #     group: "x"
+            #     theme_text_color: "Custom"
+            #     background_down: "green"
+            #     # md_bg_color: "grey"
+            #     background_normal: ""
+            #     line_color: "blue"
+            #     text_color: "blue"
+            #     size_hint: 0.1, .1
+            #     # pos_hint: {"x": 0.55, "y": 0.9}
+            #     pos_hint: {"x": 0.47, "y": 0.9}
+            #     # 
+            #     on_state: root.commando_hint()
+
         GridLayout:
             cols: 1
             size_hint: (0.6, 0.2)
@@ -174,12 +201,29 @@ MDScreenManager:
                 halign: "center"
                 text_color: "black"
 
+            # MDTextField:
+            #     # hint_text: "Hier Kommando eingeben"
+            #     helper_text: "Text eingeben"
+            #     helper_text_mode: "on_focus"
+            #     id: command_text
+            #     # font_size: 36
+            #     multiline: False
+            #     size_hint: (1, 0.5)
+            #     mode: "rectangle"
+            #     color_mode: 'custom'
+            #     line_color_focus: 1, 0, 1, 1
+            #     line_color_normal: "blue"
+            #     normal_color: "grey"
+            #     md_bg_color: "grey"
+            #     text_color: "black"
+            
             TextInput:
                 id: command_text
-                font_size: 24
                 multiline: False
                 size_hint: (1, 0.5)
-                # padding_y: (5, 5)
+                halign: "center"
+                text_color: "black"
+
 
         GridLayout:
             cols: 2
@@ -201,6 +245,7 @@ MDScreenManager:
                     root.commando()
                     root.commando_hint()
                 size_hint: (0.1, 0.1)
+
 
         GridLayout:
             cols: 1
@@ -237,8 +282,6 @@ MDScreenManager:
             cols: 1
             size_hint: (0.01, 0.01)
 
-
-
         GridLayout:
             cols: 1
             size_hint: (1, 0.1)
@@ -249,6 +292,7 @@ MDScreenManager:
                 title: ""
                 icon: "microphone"
                 mode: "center"
+
 
     MDNavigationDrawer:
         id: nav_drawer
@@ -328,6 +372,13 @@ MDScreenManager:
             #     right_text: ""
             #     selected_color: "##0f9664"
             #     #focus_color: "#e7e4c0"
+
+
+
+
+
+
+
 
 
 
