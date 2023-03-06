@@ -256,20 +256,41 @@ adb -s 29477c1e logcat *:S python:D
 
 
 
+## How to do it in a fast way
+
+
+``` powershell
+
+# creat the apk
+buildozer -v android debug
+
+# switch to dir of bin
+cd ./bin
+
+# transfer apk from ./bin/ folder:
+adb -s 29477c1e install sailcommander-0.1-arm64-v8a_armeabi-v7a-debug.apk
+
+
+
+```
+
+
+
+
 
 # All on Mobil
 
-![login](./assets/app_on_mobil.png)
+![login](./assets/screenshoots/App_start.jpg)
 
-![on_app](./assets/heal_login.png)
+![sail_down](./assets/screenshoots/App_Sail_down.jpg)
 
-![logo_on_app](./assets/screenshoot_on_mobil.png)
+![sail_scenario](./assets/screenshoots/App_Scenario.jpg)
 
+![sail_up](./assets/screenshoots/App_Sail_up.jpg)
 
+![sail_commando](./assets/screenshoots/App_Sail_Commando.jpg)
 
-
-
-
+![sail_bedingung](./assets/screenshoots/App_Sail_Bedingung.jpg)
 
 
 

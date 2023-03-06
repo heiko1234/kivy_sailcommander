@@ -11,6 +11,7 @@ ScreenManager:
 
     command_text: command_text
     input_text: input_text
+    input_buton: input_buton
 
     GridLayout:
         cols: 1
@@ -24,6 +25,11 @@ ScreenManager:
             size_hint: (1, 0.5)
             halign: "center"
             text_color: "black"
+
+        Button:
+            text: "Record"
+            id: input_buton
+            on_press: root.getaudio()
 
         Label:
             id: command_text

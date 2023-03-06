@@ -3,7 +3,13 @@
 
 # https://www.youtube.com/watch?v=LSdT1kRZh1k
 
+# https://github.com/Abhishek-op/SR/blob/main/Speechrecognizer/platforms/android/stt.py
 
+# https://pypi.org/project/SpeechRecognition/
+
+# https://groups.google.com/g/kivy-users/c/urdqLafmeEQ
+
+# https://www.youtube.com/watch?v=LSdT1kRZh1k
 
 
 
@@ -24,7 +30,24 @@ from kivy.properties import ObjectProperty
 
 # Define our differeent screens
 class MainWindow(Screen):
-    pass
+
+    command_text = ObjectProperty(None)
+    
+    def getaudio(self):
+        r = sr.Recognizer()
+
+        with sr.Microphone() as source:
+            audio = r.listen(source)
+        self.audio = audio
+
+        try:
+            self.command_text.text = str(r.recognize_google(audio, language="de"))
+
+        except sr.UnknownValueError:
+            self.command_text.text = "Did not understand audio"
+        
+        except sr.RequestError as e:
+            self.command_text.text = str(f"Error: {e}")
 
 
 
