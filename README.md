@@ -294,3 +294,16 @@ adb -s 29477c1e install sailcommander-0.1-arm64-v8a_armeabi-v7a-debug.apk
 
 
 
+## Create a video
+
+"STRG + Shift + ALT + R" to record a 30 second video
+
+![video](./assets/video_sail_commander.webm)
+
+
+
+
+
+
+
+
